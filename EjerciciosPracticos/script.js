@@ -1,48 +1,43 @@
-// 5) Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".
-const reverseString = (string = "") => {
-	!string || typeof string !== "string"
-		? console.log("No ingresaste una cadena de texto")
-		:console.log(string.split("").reverse().join(""))
+// 9) Programa una función que obtenga un numero aleatorio entre 501 y 600.
+const ranInt = () => {
+	let int = Math.round(Math.random() * 700);
+
+	if (int <= 499 || int >= 601) {
+		ranInt();
+	} else console.log(int);
 };
 
-// reverseString("Hola Mundo");
+ranInt()
 
-// 6) Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.
-const wordCount = (string = "", word = "") => {
-	if (!string || typeof string !== "string")
-		return console.log("no has ingresado un string");
 
-	if (!word || typeof word == "object")
-		return console.log("no has ingresado un string a buscar");
 
-	let count = 0;
-	string = string.split(" ");
-	for (x of string) {
-		if (x == word) {
-			count++;
-		}
+
+// 10) Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true.
+const isCapicua = (number = undefined) => {
+	if (!number || typeof number !== "number")
+		return console.log("No has introducido un número");
+
+	return console.log(
+		number.toString().split("").reverse().join("") == number.toString()
+			? `${number} sí es capicua`
+			: `${number} no es capicua`
+	);
+};
+
+isCapicua(2002);
+
+
+
+
+// 11) Programa una función que calcule el factorial de un número (El factorial de un entero positivo n, se define como el producto de todos los números enteros positivos desde 1 hasta n), pe. miFuncion(5) devolverá 120.
+const calFactorial= (number = undefined)=> {
+	if (!number || typeof number !== "number") return console.log("coloca un número, por favor")
+	if (number== 0) return console.log("El factorial de 0 es 1")
+	let factorial = number 
+	for (let x = 1; x < number; x++){
+		factorial = factorial * x
 	}
+	return console.log(`El factorial de ${number} es: ${factorial}`)
+}
 
-	return console.log(count);
-};
-
-// wordCount("Hola mundo adios mundo", "mundo")
-
-// 7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.
-const palindromo = (string = "") =>
-	!string || typeof string !== "string"
-		? console.log("No has agregado un string")
-		: reverseString(string) == string
-		? console.log(true)
-		: console.log(false);
-
-// palindromo("Salas")
-
-// 8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
-const removePatter = (string = "", pattern = "") => 
-	!string || typeof string !== "string"
-		?console.log("no has ingresado un string")
-		: !pattern || typeof pattern !== "string"
-			?console.log("no has ingresado un string como patrón a eliminar")
-			:console.log(string.replace(new RegExp(pattern, "ig"), ""))
-// removePatter("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz")
+calFactorial(5)
