@@ -1,46 +1,60 @@
-// 1) Programa una función que cuente el número de caracteres de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá 10.
+// 5) Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".
+const reverseString = (string = "") => {
+	if (!string || typeof string !== "string")
+		return console.log("no has ingresado un string");
 
-const readString = (string = "") =>
-	!string || typeof string != "string"
-		? console.log(`Dejaste la cadena vacía o no colocaste una cadena`)
-		: console.log(
-				`tu cadena es "${string}" y tiene: ${string.length} elementos`
-		  );
+	string = string.split("");
 
-// 2) Programa una función que te devuelva el texto recortado según el número de caracteres indicados, pe. miFuncion("Hola Mundo", 4) devolverá "Hola".
-
-const shortString = (string = "", number = undefined) =>
-	!string || typeof string !== "string" || number == undefined
-		? console.log(
-				"ocurrió un error, no colocaste una cadena de texto o se te olvidó el número a recortar"
-		  )
-		: console.log(
-				`tu cadena es: "${string}" y la nueva cadena es: "${string.slice(
-					0,
-					number
-				)}"`
-		  );
-
-// 3) Programa una función que dada una String te devuelva un Array de textos separados por cierto caracter, pe. miFuncion('hola que tal', ' ') devolverá ['hola', 'que', 'tal'].
-
-const stringToArray = (string = "", character = undefined) =>
-	!string || typeof string !== "string"
-		? console.log("No has escrito una cadena de texto")
-		: character === undefined
-		? console.log("No has escrito un seperador")
-		: console.log(string.split(character));
-
-// 4) Programa una función que repita un texto X veces, pe. miFuncion('Hola Mundo', 3) devolverá Hola Mundo Hola Mundo Hola Mundo.
-
-const strRepeat = (string = "", number = undefined) => {
-	if (!string || typeof string !== "string") {
-		return ("No has colocado un string");
-	} else if (number === undefined || typeof number !== "number") {
-		return ("No has colocado un número");
-	} else {
-		string = string + " ";
-		return (string.repeat(number));
-	}
+	string = string.reverse();
+	return string.join("");
 };
 
+// reverseString("Hola Mundo");
 
+// 6) Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.
+const wordCount = (string = "", word = "") => {
+	if (!string || typeof string !== "string")
+		return console.log("no has ingresado un string");
+
+	if (!word || typeof word == "object")
+		return console.log("no has ingresado un string a buscar");
+
+	let count = 0;
+	string = string.split(" ");
+	for (x of string) {
+		if (x == word) {
+			count++;
+		}
+	}
+
+	return console.log(count);
+};
+
+// wordCount("Hola mundo adios mundo", "mundo")
+
+// 7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.
+const palindromo = (string = "") =>
+	!string || typeof string !== "string"
+		? console.log("No has agregado un string")
+		: reverseString(string) == string
+		? console.log("true")
+		: console.log("false");
+
+// palindromo("salas")
+
+// 8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
+const removePatter = (string = "", pattern = "") => {
+	if (!string || typeof string !== "string")
+		return console.log("no has ingresado un string");
+
+	if (!pattern || typeof pattern !== "string")
+		return console.log("no has ingresado un string como patrón a eliminar");
+
+	string = string.split(pattern);
+	console.log(string);
+	string = string.join("");
+
+	console.log(string);
+};
+
+// removePatter("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz")
