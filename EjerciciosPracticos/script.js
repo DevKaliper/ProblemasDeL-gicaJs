@@ -1,12 +1,8 @@
 // 5) Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".
 const reverseString = (string = "") => {
-	if (!string || typeof string !== "string")
-		return console.log("no has ingresado un string");
-
-	string = string.split("");
-
-	string = string.reverse();
-	return string.join("");
+	!string || typeof string !== "string"
+		? console.log("No ingresaste una cadena de texto")
+		:console.log(string.split("").reverse().join(""))
 };
 
 // reverseString("Hola Mundo");
@@ -37,24 +33,16 @@ const palindromo = (string = "") =>
 	!string || typeof string !== "string"
 		? console.log("No has agregado un string")
 		: reverseString(string) == string
-		? console.log("true")
-		: console.log("false");
+		? console.log(true)
+		: console.log(false);
 
-// palindromo("salas")
+// palindromo("Salas")
 
 // 8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
-const removePatter = (string = "", pattern = "") => {
-	if (!string || typeof string !== "string")
-		return console.log("no has ingresado un string");
-
-	if (!pattern || typeof pattern !== "string")
-		return console.log("no has ingresado un string como patrón a eliminar");
-
-	string = string.split(pattern);
-	console.log(string);
-	string = string.join("");
-
-	console.log(string);
-};
-
+const removePatter = (string = "", pattern = "") => 
+	!string || typeof string !== "string"
+		?console.log("no has ingresado un string")
+		: !pattern || typeof pattern !== "string"
+			?console.log("no has ingresado un string como patrón a eliminar")
+			:console.log(string.replace(new RegExp(pattern, "ig"), ""))
 // removePatter("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz")
