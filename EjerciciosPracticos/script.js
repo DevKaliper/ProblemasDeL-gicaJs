@@ -1,38 +1,66 @@
-// 9) Programa una función que obtenga un numero aleatorio entre 501 y 600.
-const ranInt = () => console.log(Math.round((Math.random() * 100) +500))	 ;
- 
-// ranInt()
-
-
-
-
-// 10) Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true.
-const isCapicua = (number = undefined) => {
+// 12) Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true.
+const isPrime = (number = undefined) => {
 	if (!number || typeof number !== "number")
-		return console.log("No has introducido un número");
+		return console.log("Ingresa un número, no esa cosa rara que ingresaste");
 
-	return console.log(
-		number.toString().split("").reverse().join("") == number.toString()
-			? `${number} sí es capicua`
-			: `${number} no es capicua`
-	);
+	const primeInitial = "2,3,5,7,11";
+	if (primeInitial.includes(number)) return console.log(true);
+	if (number == 1) return console.log(false);
+
+	if (
+		number / 1 == number &&
+		number / number == 1 &&
+		number % 2 !== 0 &&
+		number % 3 !== 0 &&
+		number % 5 !== 0 &&
+		number % 7 !== 0 &&
+		number % 11 !== 0
+	) {
+		return console.log(true);
+	} else {
+		return console.log(false);
+	}
 };
 
-// isCapicua(2002);
+// isPrime(941);
+
+// 13) Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.
+const isEven = (number = undefined) =>
+	number == 0
+		? console.log("El 0 es un número par")
+		: !number || typeof number !== "number"
+		? console.log("ingresa un número por favor")
+		: number % 2 == 0
+		? console.log(`el ${number} es par`)
+		: console.log(`el ${number} es impar`);
+
+// isEven(2);
+
+// 14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F.
+const gradeConversor = (number = undefined, grade = undefined) => {
+	if (number == undefined || typeof number !== "number")
+		return console.log("Coloca un número, por favor.");
+	if (!grade || typeof grade !== "string")
+		return console.log("Coloca una medida, por favor");
 
 
-
-
-// 11) Programa una función que calcule el factorial de un número (El factorial de un entero positivo n, se define como el producto de todos los números enteros positivos desde 1 hasta n), pe. miFuncion(5) devolverá 120.
-const calFactorial= (number = undefined)=> {
-	if (!number || typeof number !== "number") return console.log("coloca un número, por favor")
-	if (number== 0) return console.log("El factorial de 0 es 1")
-	if (number < 0) return console.log("El número debe ser positivo")
-	let factorial = number 
-	for (let x = 1; x < number; x++){
-		factorial*= x
+	if (grade.toLowerCase() == "c") {
+		return console.log(toFarenheit(number));
+	} else if (grade.toLowerCase() == "f") {
+		return console.log(toCelcius(number));
+	} else {
+		return console.log("esa medida no la reconozco");
 	}
-	return console.log(`El factorial de ${number} es: ${factorial}`)
-}
 
-calFactorial(8)
+
+
+	function toFarenheit(number) {
+		return `${(number * 9) / 5 + 32}°F `;
+	}
+
+	function toCelcius(number) {
+		return `${((number - 32) * 5) / 9}°C`;
+	}
+};
+
+gradeConversor(0, "C");
