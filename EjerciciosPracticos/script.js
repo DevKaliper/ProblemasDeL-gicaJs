@@ -1,13 +1,7 @@
 // 9) Programa una función que obtenga un numero aleatorio entre 501 y 600.
-const ranInt = () => {
-	let int = Math.round(Math.random() * 700);
-
-	if (int <= 499 || int >= 601) {
-		ranInt();
-	} else console.log(int);
-};
-
-ranInt()
+const ranInt = () => console.log(Math.round((Math.random() * 100) +500))	 ;
+ 
+// ranInt()
 
 
 
@@ -24,7 +18,7 @@ const isCapicua = (number = undefined) => {
 	);
 };
 
-isCapicua(2002);
+// isCapicua(2002);
 
 
 
@@ -33,11 +27,12 @@ isCapicua(2002);
 const calFactorial= (number = undefined)=> {
 	if (!number || typeof number !== "number") return console.log("coloca un número, por favor")
 	if (number== 0) return console.log("El factorial de 0 es 1")
+	if (number < 0) return console.log("El número debe ser positivo")
 	let factorial = number 
 	for (let x = 1; x < number; x++){
-		factorial = factorial * x
+		factorial*= x
 	}
 	return console.log(`El factorial de ${number} es: ${factorial}`)
 }
 
-calFactorial(5)
+calFactorial(8)
