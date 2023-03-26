@@ -1,66 +1,32 @@
-// 12) Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true.
-const isPrime = (number = undefined) => {
+// 15) Programa una función para convertir números de base binaria a decimal y viceversa, pe. miFuncion(100,2) devolverá 4 base 10.
+
+// 16) Programa una función que devuelva el monto final después de aplicar un descuento a una cantidad dada, pe. miFuncion(1000, 20) devolverá 800.
+
+const discount = (number = undefined, dis = undefined) => {
 	if (!number || typeof number !== "number")
-		return console.log("Ingresa un número, no esa cosa rara que ingresaste");
+		return console.log("no obtendrás nada, pendejo");
+	if (!dis || typeof dis !== "number")
+		return console.log("no obtendrás nada, pendejooooo");
 
-	const primeInitial = "2,3,5,7,11";
-	if (primeInitial.includes(number)) return console.log(true);
-	if (number == 1) return console.log(false);
-
-	if (
-		number / 1 == number &&
-		number / number == 1 &&
-		number % 2 !== 0 &&
-		number % 3 !== 0 &&
-		number % 5 !== 0 &&
-		number % 7 !== 0 &&
-		number % 11 !== 0
-	) {
-		return console.log(true);
-	} else {
-		return console.log(false);
-	}
+	return console.log(`tu descuento es de ${number - dis * 0.01 * number}`);
 };
 
-// isPrime(941);
+discount(1000, 20);
 
-// 13) Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.
-const isEven = (number = undefined) =>
-	number == 0
-		? console.log("El 0 es un número par")
-		: !number || typeof number !== "number"
-		? console.log("ingresa un número por favor")
-		: number % 2 == 0
-		? console.log(`el ${number} es par`)
-		: console.log(`el ${number} es impar`);
+// 17) Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020).
 
-// isEven(2);
+const getAnio = (date) => {
+	if (!(date instanceof Date))
+		return console.log("Coloca una fecha válida por favor.");
 
-// 14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F.
-const gradeConversor = (number = undefined, grade = undefined) => {
-	if (number == undefined || typeof number !== "number")
-		return console.log("Coloca un número, por favor.");
-	if (!grade || typeof grade !== "string")
-		return console.log("Coloca una medida, por favor");
+	let newDate = new Date().getTime() - date.getTime(),
+		monthsAgo = 1000 * 60 * 60 * 24 * 365;
+	mesesHumanos = Math.floor(newDate / monthsAgo);
 
-
-	if (grade.toLowerCase() == "c") {
-		return console.log(toFarenheit(number));
-	} else if (grade.toLowerCase() == "f") {
-		return console.log(toCelcius(number));
-	} else {
-		return console.log("esa medida no la reconozco");
-	}
-
-
-
-	function toFarenheit(number) {
-		return `${(number * 9) / 5 + 32}°F `;
-	}
-
-	function toCelcius(number) {
-		return `${((number - 32) * 5) / 9}°C`;
-	}
+	return Math.sign(mesesHumanos) === -1
+		? console.log(`Faltan ${Math.abs(mesesHumanos)} años para el ${date.getFullYear()}`)
+		: Math.sign(mesesHumanos) === 1
+		? console.log(`Han pasado ${mesesHumanos} años desde el ${date.getFullYear()}`)
+		: console.log(`Estamos el mes actual ${date.getFullYear()}`);
 };
-
-gradeConversor(0, "C");
+getAnio(new Date(2033, 02, 26));
