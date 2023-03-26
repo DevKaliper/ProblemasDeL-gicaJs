@@ -1,7 +1,7 @@
 // 1) Programa una función que cuente el número de caracteres de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá 10.
 
 const readString = (string = "") =>
-	!string || typeof string != "string"
+	!string || typeof string != "strig"
 		? console.log(`Dejaste la cadena vacía o no colocaste una cadena`)
 		: console.log(
 				`tu cadena es "${string}" y tiene: ${string.length} elementos`
