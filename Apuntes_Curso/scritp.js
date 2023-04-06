@@ -158,5 +158,9 @@ let cadena = "alkdjalsdjflaewrer214lajdslaskjasjpgxlthz@gmail.comruebaasfaf";
 console.log(prueba.exec(cadena));
 
 console.clear();
-console.log("---------Import and export---------");
- 
+console.log("---------Asincroniaa---------");
+let temp = setInterval(() => {
+	console.log(new Date().toLocaleTimeString()), 1000
+})
+  
+clearInterval(temp)
