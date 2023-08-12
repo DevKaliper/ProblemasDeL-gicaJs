@@ -29,4 +29,4 @@ const getAnio = (date) => {
 		? console.log(`Han pasado ${mesesHumanos} años desde el ${date.getFullYear()}`)
 		: console.log(`Estamos el mes actual ${date.getFullYear()}`);
 };
-getAnio(new Date(2033, 02, 26));
+getAnio(new Date(2033, 0o2, 26));
